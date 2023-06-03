@@ -1,0 +1,50 @@
+body#principal{
+	background-image: url(../recources/bg.png);
+	background-position:left top;
+    background-repeat:no-repeat;
+    -webkit-background-size:cover;
+    -moz-background-size:cover;
+    -o-background-size:cover;
+    background-size:cover;
+}
+.center{
+	text-align: center;
+}
+
+.menu-object{
+	display:block;
+	margin-left: 10px;
+	margin-right: auto;
+	width: 300px;
+	height: 75px;
+	font-size: 16px;
+	margin-top: 10px;
+	text-decoration: none;
+	transform: perspective(1500px) rotateY(0deg);
+	transition: transform .2s ease 0s;
+	font-family: 'Lilita One', Arial, Helvetica, sans-serif;
+	font-size: 3vh;
+	border-radius: 10px;
+	border: 2px solid #000;
+	
+}
+.menu-object:hover{ 
+	cursor: pointer;
+	transform: perspective(3000px) rotateY(20deg);
+	box-shadow: rgba(0, 0, 0, 0.25) 0px 15px 20px -6px;
+}
+.start{
+	background-color: #8bb271;
+}
+.nose{
+	background-color: #7bb7ab;
+}
+.exit{
+	background-color: #ce9e20;
+}
+.logo{
+	background-size: 20px 30px;
+	position: absolute;
+	left: 10px;
+	bottom: 7px;
+}

@@ -1,0 +1,30 @@
+<!-- sample rectangle -->
+<svg width="200" height="200">
+ 
+  <rect width="200" height="200" x="0" y="0" fill="#57D7DE" />
+  <ellipse cx="100" cy="180" rx="150" ry="65" fill="green"/>
+  
+  <!-- animal jeje -->
+  <path d="M90 90 L92 90 L91 85 " fill="#804904"/>
+  <path d="M86 90 L88 90 L87 85 " fill="#804904"/>
+  <ellipse cx="100" cy="100" rx="10" ry="7" fill="#804904"/>
+  <ellipse cx="90" cy="95" rx="6" ry="6" fill="#804904"/>
+  <ellipse cx="87" cy="98" rx="3" ry="3" fill="#E6BC87"/>
+  <ellipse cx="87" cy="93" rx="2" ry="2" fill="#FFF" stroke="black"/>
+  <ellipse cx="91" cy="93" rx="2" ry="2" fill="#FFF" stroke="black"/>
+  <rect width="2" height="9" x="95" y="106" fill="#804904" />
+  <rect width="2" height="15" x="91" y="100" fill="#804904" />
+  <rect width="2" height="9" x="102" y="106" fill="#804904" />
+  <rect width="2" height="15" x="106" y="100" fill="#804904" />
+  <rect width="10" height="2" x="144" y="-8" fill="#804904"  transform="rotate(45)"/>
+  <!-- FI animal jeje -->
+
+  <circle cx="100" cy="100" r="90" stroke="red" stroke-width="10" fill="transparent" />
+  <rect width="10" height="60" x="95" y="10" fill="red" />
+  <rect width="10" height="60" x="95" y="130" fill="red" />
+  <rect width="60" height="10" x="10" y="95" fill="red" />
+  <rect width="60" height="10" x="130" y="95" fill="red" />
+  
+  
+
+</svg>
