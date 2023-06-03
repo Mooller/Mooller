@@ -3,6 +3,9 @@ var config = {
     width: 800,
     height: 600,
     parent: 'game_area',
+    scale: {
+        autoCenter: Phaser.Scale.CENTER_BOTH,
+    },
     physics: {
         default: 'arcade',
         arcade: {
@@ -12,5 +15,7 @@ var config = {
     },
     scene: [GameScene]
 };
+
+
 
 var game = new Phaser.Game(config);

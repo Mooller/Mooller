@@ -51,8 +51,7 @@ body#principal{
 
 .spin:hover{
 
-	animation-name: P-onsa2;
-    animation-duration: 2000ms ;
+	animation: P-onsa2 2000ms forwards;
 }
 
 
@@ -82,6 +81,6 @@ body#principal{
 		transform: rotateZ(179deg);
 	}
 	100%{
-		transform: scale(4, 4) rotateZ(260deg);
+		transform: scale(4, 4) rotateZ(360deg);
 	}
 }
