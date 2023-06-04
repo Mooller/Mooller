@@ -11,6 +11,7 @@ class GameScene extends Phaser.Scene {
 
         this.textPoints = null;
         this.points = 0;
+        this.move = 1;
     }
 
     preload() {
@@ -21,7 +22,7 @@ class GameScene extends Phaser.Scene {
         this.load.image('badbaca', '../recources/gifgit.gif');
         this.load.audio('deadcow1', '../recources/audio/dead_cow_1.mp3');
         this.load.audio('deadcow2', '../recources/audio/dead_cow_2.mp3');
-        this.load.audio('paw', '../recources/audio/paw.mp3');
+        this.load.audio('paw', '../recources/audio/paw3.mp3');
     }
 
     create() {
@@ -63,7 +64,15 @@ class GameScene extends Phaser.Scene {
         this.ch.setPosition(this.input.x, this.input.y);
 
         this.badbaques.children.iterate((badbaca) => {
-            badbaca.setPosition(badbaca.x - 1, badbaca.y);
+            badbaca.setPosition(badbaca.x - this.move, badbaca.y);
+            if (badbaca.x < -50) {
+                this.move = -1
+                badbaca.flipX = true;
+            }
+            else if (badbaca.x > 1100) {
+                this.move = 1;
+                badbaca.flipX = false;
+            }
         });
 
 
