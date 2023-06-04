@@ -70,7 +70,6 @@ class GameScene extends Phaser.Scene {
         this.add.image(500, 400, 'fonsFront').setDepth(3);
 
         this.add.image(160, 70, 'marc').setDepth(2).setScale(0.4);
-        this.add.image(500, 70, 'marc').setDepth(2).setScale(0.4);
         this.add.image(840, 70, 'marc').setDepth(2).setScale(0.4);
 
         this.baques = this.physics.add.staticGroup();
@@ -87,7 +86,6 @@ class GameScene extends Phaser.Scene {
         this.paw = this.sound.add('paw');
 
         this.textPoints = this.add.text(100, 50, 'Punts: 0', { fontFamily: 'Lilita One, Arial, Helvetica, sans-serif', fontSize: 30 }).setDepth(30);
-        this.textTime = this.add.text(460, 50, '00:00', { fontFamily: 'Lilita One, Arial, Helvetica, sans-serif', fontSize: 30 }).setDepth(30);
         this.textLives = this.add.text(780, 50, 'Vides 5/5', { fontFamily: 'Lilita One, Arial, Helvetica, sans-serif', fontSize: 30 }).setDepth(30);
 
         this.input.on('pointerup', () => { this.shoot() });
@@ -126,7 +124,7 @@ class GameScene extends Phaser.Scene {
         this.badbaques.create(1100, randomY, "cow2").play("cowAnimation2").setScale((randomY * 0.0008 - 0.3));
         let badbaca = this.badbaques.getLast(true);
         badbaca.setInteractive();
-        badbaca.move = Phaser.Math.Between(0.5, 1);
+        badbaca.move = Phaser.Math.Between(0.5, 1.5);
         badbaca.on('pointerup', () => this.matarBaca('badbaca', badbaca))
         if (randomY >= 500 && randomY <= 600) {
             badbaca.setDepth(2);
@@ -141,7 +139,7 @@ class GameScene extends Phaser.Scene {
         this.baques.create(1100, randomY, "cow").play("cowAnimation").setScale((randomY * 0.0008 - 0.3));
         let baca = this.baques.getLast(true);
         baca.setInteractive();
-        baca.move = Phaser.Math.Between(0.5, 1);
+        baca.move = Phaser.Math.Between(0.5, 1.5);
         baca.on('pointerup', () => this.matarBaca('baca', baca))
         if (randomY >= 500 && randomY <= 600) {
             baca.setDepth(2);
