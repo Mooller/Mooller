@@ -76,23 +76,20 @@ class GameScene extends Phaser.Scene {
             baca.setPosition(baca.x - baca.move, baca.y);
             if (baca.x < -50) {
                 baca.move *= -1
-                baca.scaleX = -0.2;
+                baca.scaleX *= -1;
             }
             else if (baca.x > 1100) {
                 baca.move *= -1;
-                baca.scaleX = 0.2;
+                baca.scaleX *= -1;
             }
         });
-
-
-
     }
 
     craerBadBaca() {
         console.log("Rula");
         let randomY = Phaser.Math.Between(500, 750);
         console.log("Random Y: " + randomY)
-        this.badbaques.create(1100, randomY, 'badbaca').setScale(0.2);
+        this.badbaques.create(1100, randomY, 'badbaca').setScale((randomY * 0.0008 - 0.3));
         let badbaca = this.badbaques.getLast(true);
         badbaca.setInteractive();
         badbaca.move = Phaser.Math.Between(1, 5);;
@@ -107,7 +104,7 @@ class GameScene extends Phaser.Scene {
 
     crearBaca() {
         let randomY = Phaser.Math.Between(500, 800);
-        this.baques.create(1100, randomY, 'baca').setScale(0.2);
+        this.baques.create(500, randomY, 'baca').setScale((randomY * 0.0008 - 0.3));
         let baca = this.baques.getLast(true);
         baca.setInteractive();
         baca.move = Phaser.Math.Between(1, 5);
