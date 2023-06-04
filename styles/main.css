@@ -51,36 +51,45 @@ body#principal{
 
 .spin:hover{
 
-	animation: P-onsa2 2000ms forwards;
+	animation: P-onsa 1500ms forwards;
+	-webkit-animation: P-onsa 1500ms forwards ;
 }
 
 
 @keyframes P-onsa{
 	from {
-	transform: rotateZ(0deg);
+		transform: rotateZ(0deg);
+		-webkit-transform: rotateZ(0deg);
 	}
 	100%{
-		transform: rotateZ(359deg);
+		transform: rotateZ(360deg);
+		-webkit-transform: rotateZ(360deg);
 	}
 	}
 
 @keyframes P-onsa2{
 	from {
-	transform: rotateZ(0deg);
+		transform: rotateZ(0deg);
+		-webkit-transform: rotateZ(0deg);
 	}
 	25%{
 		transform: rotateZ(100deg);
+		-webkit-transform: rotateZ(100deg);
 	}
 	30%{
 		transform: rotateZ(70deg);
+		-webkit-transform: rotateZ(70deg);
 	}
 	50%{
 		transform: rotateZ(120deg);
+		-webkit-transform: rotateZ(120deg);
 	}
 	75%{
 		transform: rotateZ(179deg);
+		-webkit-transform: rotateZ(179deg);
 	}
 	100%{
 		transform: scale(4, 4) rotateZ(360deg);
+		-webkit-transform: scale(4, 4) rotateZ(360deg);
 	}
 }
