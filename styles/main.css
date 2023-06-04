@@ -6,6 +6,10 @@ body#principal{
     -moz-background-size:cover;
     -o-background-size:cover;
     background-size:cover;
+	background-color: #527b00;
+}
+body{
+	background: #527b00;
 }
 .center{
 	text-align: center;
@@ -51,8 +55,8 @@ body#principal{
 
 .spin:hover{
 
-	animation: P-onsa 1500ms forwards;
-	-webkit-animation: P-onsa 1500ms forwards ;
+	animation: P-onsa2 1500ms forwards;
+	-webkit-animation: P-onsa2 1500ms forwards ;
 }
 
 
