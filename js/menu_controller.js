@@ -14,6 +14,9 @@ var menu = function(){
 			GH: function(){
 				window.location.href ="https://github.com/Mooller/Mooller";
 			},
+			report: function(){
+				window.location.href ="https://www.20minutos.es/noticia/5103752/0/eeuu-ordena-matar150-vacas-salvajes-disparando-helicopteros/";
+			},
 			return: function(){
 				window.location.href ="../";
 			},
