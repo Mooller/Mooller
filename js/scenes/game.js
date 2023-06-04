@@ -86,9 +86,7 @@ class GameScene extends Phaser.Scene {
     }
 
     craerBadBaca() {
-        console.log("Rula");
         let randomY = Phaser.Math.Between(500, 750);
-        console.log("Random Y: " + randomY)
         this.badbaques.create(1100, randomY, 'badbaca').setScale((randomY * 0.0008 - 0.3));
         let badbaca = this.badbaques.getLast(true);
         badbaca.setInteractive();
@@ -104,7 +102,7 @@ class GameScene extends Phaser.Scene {
 
     crearBaca() {
         let randomY = Phaser.Math.Between(500, 800);
-        this.baques.create(500, randomY, 'baca').setScale((randomY * 0.0008 - 0.3));
+        this.baques.create(1100, randomY, 'baca').setScale((randomY * 0.0008 - 0.3));
         let baca = this.baques.getLast(true);
         baca.setInteractive();
         baca.move = Phaser.Math.Between(1, 5);
@@ -113,7 +111,6 @@ class GameScene extends Phaser.Scene {
             baca.setDepth(2);
         }
         else {
-            console.log("Entro");
             baca.setDepth(5);
         }
     }
