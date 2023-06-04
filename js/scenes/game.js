@@ -7,6 +7,8 @@ class GameScene extends Phaser.Scene {
 
         this.deadCow1 = null;
         this.deadCow2 = null;
+        this.textPoints = null;
+        this.points = 0;
     }
 
     preload() {
@@ -47,6 +49,8 @@ class GameScene extends Phaser.Scene {
 
         this.deadCow1 = this.sound.add('deadcow1');
         this.deadCow2 = this.sound.add('deadcow2');
+
+        this.textPoints = this.add.text(0, 0, 'Punts: 0', { fontFamily: 'Georgia, "Goudy Bookletter 1911", Times, serif' }).setDepth(30);
     }
 
     update() {
@@ -62,6 +66,14 @@ class GameScene extends Phaser.Scene {
             this.deadCow2.play();
         }
 
+        if (tipus == "baca") {
+            this.points--;
+            this.textPoints.setText("Punts: " + this.points);
+        }
+        else if (tipus == "badbaca") {
+            this.points++;
+            this.textPoints.setText("Punts: " + this.points);
+        }
         obj.destroy();
     }
 }
