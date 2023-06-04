@@ -7,6 +7,8 @@ class GameScene extends Phaser.Scene {
 
         this.deadCow1 = null;
         this.deadCow2 = null;
+        this.paw = null;
+
         this.textPoints = null;
         this.points = 0;
     }
@@ -19,6 +21,7 @@ class GameScene extends Phaser.Scene {
         this.load.image('badbaca', '../recources/gifgit.gif');
         this.load.audio('deadcow1', '../recources/audio/dead_cow_1.mp3');
         this.load.audio('deadcow2', '../recources/audio/dead_cow_2.mp3');
+        this.load.audio('paw', '../recources/audio/paw.mp3');
     }
 
     create() {
@@ -49,31 +52,41 @@ class GameScene extends Phaser.Scene {
 
         this.deadCow1 = this.sound.add('deadcow1');
         this.deadCow2 = this.sound.add('deadcow2');
+        this.paw = this.sound.add('paw');
 
         this.textPoints = this.add.text(0, 0, 'Punts: 0', { fontFamily: 'Georgia, "Goudy Bookletter 1911", Times, serif' }).setDepth(30);
+
+        this.input.on('pointerup', () => { this.shoot() });
     }
 
     update() {
         this.ch.setPosition(this.input.x, this.input.y);
     }
 
-    matarBaca(tipus, obj) {
-        var rng = Phaser.Math.Between(1, 2);
-        if (rng == 1) {
-            this.deadCow1.play();
-        }
-        else {
-            this.deadCow2.play();
-        }
+    shoot() {
+        this.paw.play();
+    }
 
-        if (tipus == "baca") {
-            this.points--;
-            this.textPoints.setText("Punts: " + this.points);
-        }
-        else if (tipus == "badbaca") {
-            this.points++;
-            this.textPoints.setText("Punts: " + this.points);
-        }
-        obj.destroy();
+    matarBaca(tipus, obj) {
+
+        setTimeout(() => {
+            var rng = Phaser.Math.Between(1, 2);
+            if (rng == 1) {
+                this.deadCow1.play();
+            }
+            else {
+                this.deadCow2.play();
+            }
+
+            if (tipus == "baca") {
+                this.points--;
+                this.textPoints.setText("Punts: " + this.points);
+            }
+            else if (tipus == "badbaca") {
+                this.points++;
+                this.textPoints.setText("Punts: " + this.points);
+            }
+            obj.destroy();
+        }, 700);
     }
 }
