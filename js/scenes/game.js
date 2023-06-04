@@ -28,11 +28,11 @@ class GameScene extends Phaser.Scene {
         this.load.spritesheet("cow", "../recources/cow-walking_sheet.png", {
             frameWidth: 318,
             frameHeight: 243
-          });
-          this.load.spritesheet("cow2", "../recources/cow-walking_sheet_marcada.png", {
+        });
+        this.load.spritesheet("cow2", "../recources/cow-walking_sheet_marcada.png", {
             frameWidth: 318,
             frameHeight: 243
-          });
+        });
     }
 
     create() {
@@ -40,28 +40,28 @@ class GameScene extends Phaser.Scene {
         var cownimation = {
             key: "cowAnimation",
             frames: this.anims.generateFrameNumbers("cow", {
-              start: 0,
-              end: 25,
-              first: 0
+                start: 0,
+                end: 25,
+                first: 0
             }),
             frameRate: 20,
             repeat: -1
-          };
-          var cownimation2 = {
+        };
+        var cownimation2 = {
             key: "cowAnimation2",
             frames: this.anims.generateFrameNumbers("cow2", {
-              start: 0,
-              end: 25,
-              first: 0
+                start: 0,
+                end: 25,
+                first: 0
             }),
             frameRate: 20,
             repeat: -1
-          };
-  
-          this.anims.create(cownimation);
-          this.anims.create(cownimation2);
+        };
 
-         
+        this.anims.create(cownimation);
+        this.anims.create(cownimation2);
+
+
 
         let canvas = this.sys.canvas;
         canvas.style.cursor = 'none';
@@ -122,9 +122,7 @@ class GameScene extends Phaser.Scene {
     }
 
     craerBadBaca() {
-        console.log("Rula");
         let randomY = Phaser.Math.Between(500, 750);
-        console.log("Random Y: " + randomY)
         this.badbaques.create(1100, randomY, "cow2").play("cowAnimation2").setScale((randomY * 0.0008 - 0.3));
         let badbaca = this.badbaques.getLast(true);
         badbaca.setInteractive();
@@ -140,7 +138,7 @@ class GameScene extends Phaser.Scene {
 
     crearBaca() {
         let randomY = Phaser.Math.Between(500, 800);
-        this.baques.create(500, randomY, "cow").play("cowAnimation").setScale((randomY * 0.0008 - 0.3));
+        this.baques.create(1100, randomY, "cow").play("cowAnimation").setScale((randomY * 0.0008 - 0.3));
         let baca = this.baques.getLast(true);
         baca.setInteractive();
         baca.move = Phaser.Math.Between(1, 5);
@@ -149,7 +147,6 @@ class GameScene extends Phaser.Scene {
             baca.setDepth(2);
         }
         else {
-            console.log("Entro");
             baca.setDepth(5);
         }
     }
