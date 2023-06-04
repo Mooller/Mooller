@@ -15,6 +15,15 @@
 				var audio = new Audio('./recources/audio/menu_tick.mp3');
           		audio.play();
 			}
+			
+			var bgMus = new Audio('./recources/audio/cow.mp3'); 
+			bgMus.addEventListener('ended', function() {
+				this.currentTime = 2;
+				this.play();
+			}, false);
+			bgMus.play();
+			bgMus.volume = 0.1;
+			
 		  </script>
 		<div class="center">
 			<img src="./recources/Mooller.png" alt="">
@@ -56,6 +65,7 @@
 		</div>
 		<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
 		<script src="./js/menu_controller.js"></script>
+		
 		
 	</body>
 </html>
