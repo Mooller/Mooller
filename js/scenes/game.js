@@ -176,8 +176,9 @@ class GameScene extends Phaser.Scene {
             }
             obj.destroy();
 
-            let randomNumBaques = Phaser.Math.Between(3, 5);
+            let randomNumBaques = Phaser.Math.Between(1, 5);
 
+            this.craerBadBaca();
             for (var i = 0; i < randomNumBaques; i++) {
                 let prob = Phaser.Math.Between(1, 2);
                 if (prob == 1) {
