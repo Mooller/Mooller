@@ -12,8 +12,8 @@
 	<body id="principal">
 		<script>
 			function play() {
-			  var audio = document.getElementById("audio");
-			  audio.play();
+				var audio = new Audio('./recources/audio/menu_tick.mp3')
+          audio.play();
 			}
 		  </script>
 		<div class="center">
@@ -56,7 +56,6 @@
 		<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
 		<script src="./js/menu_controller.js"></script>
 		
-		  <audio id="audio" src="./recources/audio/menu_tick.mp3"></audio>
 	</body>
 </html>
 
