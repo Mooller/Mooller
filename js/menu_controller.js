@@ -14,6 +14,9 @@ var menu = function(){
 			GH: function(){
 				window.location.href ="https://github.com/Mooller/Mooller";
 			},
+			return: function(){
+				window.location.href ="../";
+			},
 
 		}
 	});

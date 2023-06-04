@@ -33,6 +33,12 @@ body{
 	border: 2px solid #000;
 	
 }
+.petit{
+	width: 100px;
+	height: 25px;
+	font-size: 16px;
+	text-decoration: none;
+}
 .menu-object:hover{ 
 	cursor: pointer;
 	transform: perspective(3000px) rotateY(20deg);
