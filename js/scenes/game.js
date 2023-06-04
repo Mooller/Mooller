@@ -100,11 +100,11 @@ class GameScene extends Phaser.Scene {
             badbaca.setPosition(badbaca.x - badbaca.move, badbaca.y);
             if (badbaca.x < -50) {
                 badbaca.move *= -1
-                badbaca.scaleX = -0.2;
+                badbaca.scaleX *= -1;
             }
             else if (badbaca.x > 1100) {
                 badbaca.move *= -1;
-                badbaca.scaleX = 0.2;
+                badbaca.scaleX *= -1;
             }
         });
 
