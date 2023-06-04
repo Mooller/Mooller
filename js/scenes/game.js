@@ -141,7 +141,7 @@ class GameScene extends Phaser.Scene {
         this.baques.create(1100, randomY, "cow").play("cowAnimation").setScale((randomY * 0.0008 - 0.3));
         let baca = this.baques.getLast(true);
         baca.setInteractive();
-        baca.move = Phaser.Math.Between(1, 5);
+        baca.move = Phaser.Math.Between(0.5, 1);
         baca.on('pointerup', () => this.matarBaca('baca', baca))
         if (randomY >= 500 && randomY <= 600) {
             baca.setDepth(2);
