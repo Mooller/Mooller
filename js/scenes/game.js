@@ -24,9 +24,45 @@ class GameScene extends Phaser.Scene {
         this.load.audio('deadcow1', '../recources/audio/dead_cow_1.mp3');
         this.load.audio('deadcow2', '../recources/audio/dead_cow_2.mp3');
         this.load.audio('paw', '../recources/audio/paw.mp3');
+
+        this.load.spritesheet("cow", "../recources/cow-walking_sheet.png", {
+            frameWidth: 318,
+            frameHeight: 243
+          });
+          this.load.spritesheet("cow2", "../recources/cow-walking_sheet_marcada.png", {
+            frameWidth: 318,
+            frameHeight: 243
+          });
     }
 
     create() {
+
+        var cownimation = {
+            key: "cowAnimation",
+            frames: this.anims.generateFrameNumbers("cow", {
+              start: 0,
+              end: 25,
+              first: 0
+            }),
+            frameRate: 20,
+            repeat: -1
+          };
+          var cownimation2 = {
+            key: "cowAnimation2",
+            frames: this.anims.generateFrameNumbers("cow2", {
+              start: 0,
+              end: 25,
+              first: 0
+            }),
+            frameRate: 20,
+            repeat: -1
+          };
+  
+          this.anims.create(cownimation);
+          this.anims.create(cownimation2);
+
+         
+
         let canvas = this.sys.canvas;
         canvas.style.cursor = 'none';
 
@@ -64,11 +100,11 @@ class GameScene extends Phaser.Scene {
             badbaca.setPosition(badbaca.x - badbaca.move, badbaca.y);
             if (badbaca.x < -50) {
                 badbaca.move *= -1
-                badbaca.scaleX *= -1;
+                badbaca.scaleX = -0.2;
             }
             else if (badbaca.x > 1100) {
                 badbaca.move *= -1;
-                badbaca.scaleX *= -1;
+                badbaca.scaleX = 0.2;
             }
         });
 
@@ -86,11 +122,13 @@ class GameScene extends Phaser.Scene {
     }
 
     craerBadBaca() {
+        console.log("Rula");
         let randomY = Phaser.Math.Between(500, 750);
-        this.badbaques.create(1100, randomY, 'badbaca').setScale((randomY * 0.0008 - 0.3));
+        console.log("Random Y: " + randomY)
+        this.badbaques.create(1100, randomY, "cow2").play("cowAnimation2").setScale((randomY * 0.0008 - 0.3));
         let badbaca = this.badbaques.getLast(true);
         badbaca.setInteractive();
-        badbaca.move = Phaser.Math.Between(1, 5);;
+        badbaca.move = Phaser.Math.Between(0.5, 1);
         badbaca.on('pointerup', () => this.matarBaca('badbaca', badbaca))
         if (randomY >= 500 && randomY <= 600) {
             badbaca.setDepth(2);
@@ -102,7 +140,7 @@ class GameScene extends Phaser.Scene {
 
     crearBaca() {
         let randomY = Phaser.Math.Between(500, 800);
-        this.baques.create(1100, randomY, 'baca').setScale((randomY * 0.0008 - 0.3));
+        this.baques.create(500, randomY, "cow").play("cowAnimation").setScale((randomY * 0.0008 - 0.3));
         let baca = this.baques.getLast(true);
         baca.setInteractive();
         baca.move = Phaser.Math.Between(1, 5);
@@ -111,6 +149,7 @@ class GameScene extends Phaser.Scene {
             baca.setDepth(2);
         }
         else {
+            console.log("Entro");
             baca.setDepth(5);
         }
     }
