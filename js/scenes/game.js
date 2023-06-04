@@ -37,15 +37,15 @@ class GameScene extends Phaser.Scene {
             baca.setInteractive();
             baca.on('pointerup', () => this.matarBaca('baca', baca))
             baca.setDepth(2);
-        })
+        });
 
         this.badbaques = this.physics.add.staticGroup();
-        this.badbaques.create(50, 520, 'badbaca').setScale(0.2);
+        this.badbaques.create(1100, 700, 'badbaca').setScale(0.2);
         this.badbaques.children.iterate((badbaca) => {
             badbaca.setInteractive();
             badbaca.on('pointerup', () => this.matarBaca('badbaca', badbaca))
             badbaca.setDepth(5);
-        })
+        });
 
         this.ch = this.physics.add.sprite(300, 300, 'ch').setDepth(10);
         this.ch.setScale(0.25);
@@ -61,6 +61,13 @@ class GameScene extends Phaser.Scene {
 
     update() {
         this.ch.setPosition(this.input.x, this.input.y);
+
+        this.badbaques.children.iterate((badbaca) => {
+            badbaca.setPosition(badbaca.x - 1, badbaca.y);
+        });
+
+
+
     }
 
     shoot() {
