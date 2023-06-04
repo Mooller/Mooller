@@ -28,14 +28,14 @@ class GameScene extends Phaser.Scene {
         this.baques.create(300, 600, 'baca').setScale(0.2);
         this.baques.children.iterate((baca) => {
             baca.setInteractive();
-            baca.on('pointerup', () => this.matarBaca('baca'))
+            baca.on('pointerup', () => this.matarBaca('baca', baca))
         })
 
         this.badbaques = this.physics.add.staticGroup();
         this.badbaques.create(400, 600, 'badbaca').setScale(0.2);
         this.badbaques.children.iterate((badbaca) => {
             badbaca.setInteractive();
-            badbaca.on('pointerup', () => this.matarBaca('badbaca'))
+            badbaca.on('pointerup', () => this.matarBaca('badbaca', badbaca))
         })
 
         this.ch = this.physics.add.sprite(300, 300, 'ch');
@@ -49,7 +49,7 @@ class GameScene extends Phaser.Scene {
         this.ch.setPosition(this.input.x, this.input.y);
     }
 
-    matarBaca(tipus) {
+    matarBaca(tipus, obj) {
         var rng = Phaser.Math.Between(1, 2);
         if (rng == 1) {
             this.deadCow1.play();
@@ -57,5 +57,7 @@ class GameScene extends Phaser.Scene {
         else {
             this.deadCow2.play();
         }
+
+        obj.destroy();
     }
 }
