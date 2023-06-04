@@ -11,8 +11,8 @@ var menu = function(){
 					window.location.href = "https://moodle2.udg.edu/course/view.php?id=33309";
 				  }
 			},
-			options: function(){
-				window.location.href ="./html/options.html";
+			GH: function(){
+				window.location.href ="https://github.com/Mooller/Mooller";
 			},
 
 		}
