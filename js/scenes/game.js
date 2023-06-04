@@ -90,7 +90,7 @@ class GameScene extends Phaser.Scene {
         this.badbaques.create(1100, randomY, 'badbaca').setScale((randomY * 0.0008 - 0.3));
         let badbaca = this.badbaques.getLast(true);
         badbaca.setInteractive();
-        badbaca.move = Phaser.Math.Between(1, 5);;
+        badbaca.move = Phaser.Math.Between(1, 5);
         badbaca.on('pointerup', () => this.matarBaca('badbaca', badbaca))
         if (randomY >= 500 && randomY <= 600) {
             badbaca.setDepth(2);
