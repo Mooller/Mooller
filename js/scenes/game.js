@@ -24,7 +24,7 @@ class GameScene extends Phaser.Scene {
         canvas.style.cursor = 'none';
 
         this.add.image(500, 400, 'fonsBack').setDepth(2);
-        this.add.image(500, 400, 'fonsFront').setDepth(3);
+        this.add.image(500, 400, 'fonsFront').setDepth(3)
 
         this.baques = this.physics.add.staticGroup();
         this.baques.create(500, 550, 'baca').setScale(0.2);
