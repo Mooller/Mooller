@@ -5,7 +5,7 @@ class GameScene extends Phaser.Scene {
     }
 
     preload() {
-        this.load.image('ch', '../resources/crosshair.png');
+        this.load.image('ch', '../recources/crosshair.png');
     }
 
     create() {
