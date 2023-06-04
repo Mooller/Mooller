@@ -21,9 +21,13 @@ class GameScene extends Phaser.Scene {
         this.load.image('baca', '../recources/vaka.gif');
         this.load.image('badbaca', '../recources/gifgit.gif');
         this.load.image('marc', '../recources/Marcs.png');
+        this.load.image('jeto', '../recources/deadCow.png');
+        this.load.image('cor', '../recources/Cor.png');
         this.load.audio('deadcow1', '../recources/audio/dead_cow_1.mp3');
         this.load.audio('deadcow2', '../recources/audio/dead_cow_2.mp3');
         this.load.audio('paw', '../recources/audio/paw.mp3');
+
+        this.load.audio('bgM', '../recources/audio/cow.mp3');
 
         this.load.spritesheet("cow", "../recources/cow-walking_sheet.png", {
             frameWidth: 318,
@@ -61,6 +65,9 @@ class GameScene extends Phaser.Scene {
         this.anims.create(cownimation);
         this.anims.create(cownimation2);
 
+        let music = this.sound.add("bgM", { loop: true,volume: 0.2 });
+
+        music.play();
 
 
         let canvas = this.sys.canvas;
@@ -70,6 +77,8 @@ class GameScene extends Phaser.Scene {
         this.add.image(500, 400, 'fonsFront').setDepth(3);
 
         this.add.image(160, 70, 'marc').setDepth(2).setScale(0.4);
+        this.add.image(280, 30, 'jeto').setDepth(2).setScale(0.2);
+        this.add.image(713, 30, 'cor').setDepth(3).setScale(0.05);
         this.add.image(840, 70, 'marc').setDepth(2).setScale(0.4);
 
         this.baques = this.physics.add.staticGroup();
