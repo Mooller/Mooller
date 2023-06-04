@@ -85,49 +85,63 @@ class GameScene extends Phaser.Scene {
         this.deadCow2 = this.sound.add('deadcow2');
         this.paw = this.sound.add('paw');
 
-        this.textPoints = this.add.text(100, 50, 'Punts: 0', { fontFamily: 'Lilita One, Arial, Helvetica, sans-serif', fontSize: 30 }).setDepth(30);
-        this.textLives = this.add.text(780, 50, 'Vides 5/5', { fontFamily: 'Lilita One, Arial, Helvetica, sans-serif', fontSize: 30 }).setDepth(30);
+        this.textPoints = this.add.text(100, 50, 'Score: 0', { fontFamily: 'Lilita One, Arial, Helvetica, sans-serif', fontSize: 30 }).setDepth(30);
+        this.textLives = this.add.text(780, 50, 'Lives 5/5', { fontFamily: 'Lilita One, Arial, Helvetica, sans-serif', fontSize: 30 }).setDepth(30);
 
         this.input.on('pointerup', () => { this.shoot() });
     }
 
     update() {
-        this.ch.setPosition(this.input.x, this.input.y);
 
-        this.badbaques.children.iterate((badbaca) => {
-            badbaca.setPosition(badbaca.x - badbaca.move, badbaca.y);
-            if (badbaca.x < -50) {
-                badbaca.move *= -1
-                badbaca.scaleX *= -1;
-            }
-            else if (badbaca.x > 1100) {
-                badbaca.move *= -1;
-                badbaca.scaleX *= -1;
-            }
-        });
 
-        this.baques.children.iterate((baca) => {
-            baca.setPosition(baca.x - baca.move, baca.y);
-            if (baca.x < -50) {
-                baca.move *= -1
-                baca.scaleX *= -1;
-            }
-            else if (baca.x > 1100) {
-                baca.move *= -1;
-                baca.scaleX *= -1;
-            }
-        });
-    }
+        if (this.vides == 0) {
+            this.add.image(500, 400, 'marc').setDepth(5).setScale(1);
+            this.add.text(370, 350, 'GAME OVER', { fontFamily: 'Lilita One, Arial, Helvetica, sans-serif', fontSize: 50 }).setDepth(30);
+            this.add.text(450, 450, 'Score: '+  this.points, { fontFamily: 'Lilita One, Arial, Helvetica, sans-serif', fontSize: 30 }).setDepth(30);
+            this.ch.destroy();
+            this.sys.canvas.style.cursor = 'default';
+            this.scene.pause();
 
-    craerBadBaca() {
-        let randomY = Phaser.Math.Between(500, 750);
-        this.badbaques.create(1100, randomY, "cow2").play("cowAnimation2").setScale((randomY * 0.0008 - 0.3));
-        let badbaca = this.badbaques.getLast(true);
-        badbaca.setInteractive();
-        badbaca.move = Phaser.Math.Between(0.5, 1.5);
-        badbaca.on('pointerup', () => this.matarBaca('badbaca', badbaca))
-        if (randomY >= 500 && randomY <= 600) {
-            badbaca.setDepth(2);
+        }
+
+            
+            this.ch.setPosition(this.input.x, this.input.y);
+            
+            this.badbaques.children.iterate((badbaca) => {
+                badbaca.setPosition(badbaca.x - badbaca.move, badbaca.y);
+                if (badbaca.x < -50) {
+                    badbaca.move *= -1
+                    badbaca.scaleX *= -1;
+                }
+                else if (badbaca.x > 1100) {
+                    badbaca.move *= -1;
+                    badbaca.scaleX *= -1;
+                }
+            });
+            
+            this.baques.children.iterate((baca) => {
+                baca.setPosition(baca.x - baca.move, baca.y);
+                if (baca.x < -50) {
+                    baca.move *= -1
+                    baca.scaleX *= -1;
+                }
+                else if (baca.x > 1100) {
+                    baca.move *= -1;
+                    baca.scaleX *= -1;
+                }
+            });
+        
+        }
+
+craerBadBaca() {
+    let randomY = Phaser.Math.Between(500, 750);
+    this.badbaques.create(1100, randomY, "cow2").play("cowAnimation2").setScale((randomY * 0.0008 - 0.3));
+    let badbaca = this.badbaques.getLast(true);
+    badbaca.setInteractive();
+    badbaca.move = Phaser.Math.Between(0.5, 1.5);
+    badbaca.on('pointerup', () => this.matarBaca('badbaca', badbaca))
+    if (randomY >= 500 && randomY <= 600) {
+        badbaca.setDepth(2);
         }
         else {
             badbaca.setDepth(5);
@@ -167,12 +181,12 @@ class GameScene extends Phaser.Scene {
             if (tipus == "baca") {
                 this.points--;
                 this.vides--;
-                this.textPoints.setText("Punts: " + this.points);
-                this.textLives.setText("Vides " + this.vides + "/5");
+                this.textPoints.setText("Score: " + this.points);
+                this.textLives.setText("Lives " + this.vides + "/5");
             }
             else if (tipus == "badbaca") {
                 this.points++;
-                this.textPoints.setText("Punts: " + this.points);
+                this.textPoints.setText("Score: " + this.points);
             }
             obj.destroy();
 
